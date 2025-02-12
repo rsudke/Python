@@ -1,0 +1,48 @@
+[package]
+name = "nimiq-database"
+version.workspace = true
+authors = [
+    "Pascal B <git@paberr.net>",
+    "The Nimiq Core Development Team <info@nimiq.com>",
+]
+license.workspace = true
+edition.workspace = true
+description = "A LMDB database wrapper with support for volatile storage"
+homepage.workspace = true
+repository.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[badges]
+travis-ci = { repository = "nimiq/core-rs", branch = "master" }
+is-it-maintained-issue-resolution = { repository = "nimiq/core-rs" }
+is-it-maintained-open-issues = { repository = "nimiq/core-rs" }
+maintenance = { status = "experimental" }
+
+[lints]
+workspace = true
+
+[dependencies]
+libmdbx = "0.5.3"
+log = { workspace = true }
+tempfile = "3"
+thiserror = "2.0"
+
+nimiq-database-value = { workspace = true }
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+pprof = { version = "0.14", features = [
+    "flamegraph",
+    "frame-pointer",
+    "criterion",
+] }
+rand = "0.8"
+
+[[bench]]
+name = "hash_keys"
+harness = false
+
+[[bench]]
+name = "pruning"
+harness = false

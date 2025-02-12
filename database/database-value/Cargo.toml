@@ -1,0 +1,20 @@
+[package]
+name = "nimiq-database-value"
+version.workspace = true
+authors.workspace = true
+license.workspace = true
+edition.workspace = true
+description = "A simple trait for writing and reading from a Nimiq DB"
+homepage.workspace = true
+repository.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[badges]
+travis-ci = { repository = "nimiq/core-rs", branch = "master" }
+is-it-maintained-issue-resolution = { repository = "nimiq/core-rs" }
+is-it-maintained-open-issues = { repository = "nimiq/core-rs" }
+maintenance = { status = "experimental" }
+
+[lints]
+workspace = true

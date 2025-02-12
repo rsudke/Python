@@ -1,0 +1,52 @@
+[package]
+name = "nimiq-genesis"
+version.workspace = true
+authors.workspace = true
+license.workspace = true
+edition.workspace = true
+description = "Nimiq Genesis configuration"
+homepage.workspace = true
+repository.workspace = true
+categories.workspace = true
+keywords.workspace = true
+build = "build.rs"
+
+[badges]
+travis-ci = { repository = "nimiq/core-rs", branch = "master" }
+is-it-maintained-issue-resolution = { repository = "nimiq/core-rs" }
+is-it-maintained-open-issues = { repository = "nimiq/core-rs" }
+maintenance = { status = "experimental" }
+
+[lints]
+workspace = true
+
+[dependencies]
+hex = "0.4"
+serde = "1.0"
+url = "2.5"
+
+nimiq-block = { workspace = true }
+nimiq-bls = { workspace = true }
+nimiq-database = { workspace = true, optional = true }
+nimiq-genesis-builder = { workspace = true, optional = true }
+nimiq-hash = { workspace = true }
+nimiq-hash_derive = { workspace = true }
+nimiq-keys = { workspace = true }
+nimiq-macros = { workspace = true }
+nimiq-primitives = { workspace = true, features = ["coin", "networks"] }
+nimiq-serde = { workspace = true }
+nimiq-transaction = { workspace = true }
+nimiq-utils = { workspace = true, features = ["time"] }
+
+[build-dependencies]
+log = { workspace = true }
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+nimiq-database = { workspace = true }
+nimiq-genesis-builder = { workspace = true }
+nimiq-hash = { workspace = true }
+nimiq-keys = { workspace = true }
+
+[features]
+default = ["genesis-override"]
+genesis-override = ["nimiq-database", "nimiq-genesis-builder"]
